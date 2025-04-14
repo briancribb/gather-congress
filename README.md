@@ -20,11 +20,68 @@ Once I have the data collected in a JSON file, I can use it in my other reposist
 
 ## Tools I Will Use
 I'm going to make a little React App with Vite, and learn enough Node to make a local server that I can hit to write the final file. I'll use the Fetch API for calls.
-1. [Vite](https://vite.dev/)
-2. [React](https://react.dev/)
-3. [Node](https://nodejs.org/en)
-4. [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-5. [Bootstrap](https://getbootstrap.com/)
+1. [Vite](https://vite.dev/) - for bundling.
+2. [React](https://react.dev/) - for the UI.
+3. [Node](https://nodejs.org/en) - to write the final data files.
+4. [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) - for requests, so I can avoid using jQuery.
+5. [Bootstrap](https://getbootstrap.com/) - for styling, because this is just a utility.
+6. TypeScript - because everyone is using TypeScript now and I need to use it more.
 
 ## Future Improvements
 There's actually a [Fetch API for Node](https://nodejs.org/en/learn/getting-started/fetch) that I could use for this. I'm more comfortable on the front-end at the moment, but when I get more experience with Node I can probably move some functions to the back-end and do this entire process from the terminal.
+
+
+# React + TypeScript + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
