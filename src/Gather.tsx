@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './gather.css'
 
 function Gather() {
-  const [APIKey, setAPIKey] = useState("znHnO2YGs1Nou5Co4aejC7Dc8sj2ozLncNomjLa8");
+  const [APIKey, setAPIKey] = useState("");
   const [congressNum, setCongressNum] = useState(119);
   const [disabled, setDisabled] = useState(false);
   const [limit] = useState(250);
