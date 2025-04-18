@@ -38,8 +38,8 @@ const getAllMembers = () => {
 			console.log("-- Ran out of peeps.", members.length);
 			let strMembers = JSON.stringify(members);
 			let stMemberIds = JSON.stringify(members.map((member)=>member.bioguideId));
-			fs.writeFile('./data/members.json', strMembers, 'utf8', ()=>{console.log("members.json created")});
-			fs.writeFile('./data/member-ids.json', stMemberIds, 'utf8', ()=>{console.log("members.json created")});
+			fs.writeFile('./data/members-basic.json', strMembers, 'utf8', ()=>{console.log("members-basic.json created")});
+			fs.writeFile('./data/member-ids.json', stMemberIds, 'utf8', ()=>{console.log("member-ids.json.json created")});
 		}
 	});
 }
