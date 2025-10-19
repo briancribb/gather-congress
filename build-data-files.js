@@ -8,7 +8,7 @@ let APIKey = "",//Get your own API key from https://api.congress.gov/sign-up/
 	members = [];
 
 const getRequestString = () => {
-	return `https://api.congress.gov/v3/member/congress/${congressNum}?format=json&offset=${offset}&limit=${limit}&api_key=${APIKey}`;
+	return `https://api.congress.gov/v3/member/congress/${congressNum}?format=json&offset=${offset}&limit=${limit}&currentMember=true&api_key=${APIKey}`;
 }
 
 const getMemberList = () => {
@@ -37,9 +37,9 @@ const getAllMembers = () => {
 		} else {
 			console.log("-- Ran out of peeps.", members.length);
 			let strMembers = JSON.stringify(members);
-			let stMemberIds = JSON.stringify(members.map((member)=>member.bioguideId));
+			let strMemberIds = JSON.stringify(members.map((member)=>member.bioguideId));
 			fs.writeFile('./data/members-basic.json', strMembers, 'utf8', ()=>{console.log("members-basic.json created")});
-			fs.writeFile('./data/member-ids.json', stMemberIds, 'utf8', ()=>{console.log("member-ids.json.json created")});
+			fs.writeFile('./data/member-ids.json', strMemberIds, 'utf8', ()=>{console.log("member-ids.json.json created")});
 		}
 	});
 }
