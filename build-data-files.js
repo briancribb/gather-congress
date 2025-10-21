@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 
-let APIKey = "",//Get your own API key from https://api.congress.gov/sign-up/
+let APIKey = "",// API key goes here. Get your own from https://api.congress.gov/sign-up/
 	congressNum = 119,
 	offset = 0,
 	limit = 250,

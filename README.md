@@ -4,9 +4,13 @@ A couple of little Node scripts which gather up data about members of Congress f
 I used to have a little app called [Politician List](https://github.com/briancribb/politicianlist) that listed all members of both chambers of Congress and allowed you to filter them down, but it was based upon the ProPublica API which is no longer available. This dependency caused my app to irrevocably bork. Fortunately, Congress offers [its own API](https://api.congress.gov/) for getting data on our national politicians. There's also a [GitHub repository](https://github.com/LibraryOfCongress/api.congress.gov/) for the whole thing. This gives me a new source of data, but it doesn't solve the problem of disassociative borking which occurs when an API is taken down. For that, I'll need local data.
 
 ## How it Works
-These scripts hit the endpoints from the [Congress.gov API](https://www.loc.gov/apis/additional-apis/congress-dot-gov-api/) from the Library of Congress.
+These scripts hit the endpoints from the [Congress.gov API](https://www.loc.gov/apis/additional-apis/congress-dot-gov-api/) from the Library of Congress. Run them one at a time, in order, and you'll end up with a usable data file.
+
 1. build-data-files.js - This gets a list of active members for the current Congress. It uses the data to write two files to the current folder. First is just the data, and the other is an array of the `bioguideId` property from each member. It takes three calls to catch 'em all.
+
 2. build-detailed-list.js - This one grabs the `bioguideId` array and uses that to hit the details API for each member, one at a time. This takes a minute or two to run, but then you have a data file for all active members of Congress which has more details than the data you get from the regular endpoint.
+
+3. build-transformed-list.js - This builds the final file that will be used as the data source for politicianlist.com. Just copy "memberListData.js" over the version currently being used by the site.
 
 **Note:** Delete the old files before making new ones. It's just a little script for me, so I didn't bother with protecting against that kind of error. If the files are still in the target folder, the terminal will honk at you.
 

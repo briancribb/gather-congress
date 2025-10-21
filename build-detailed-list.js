@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const memberIds = JSON.parse(fs.readFileSync('./data/member-ids.json', 'utf8'));
-let 	APIKey = "",//Get your own API key from https://api.congress.gov/sign-up/
+let 	APIKey = "",// API key goes here. Get your own from https://api.congress.gov/sign-up/
 		members = [],
 		count = 0, 
 		countLimit = memberIds.length;
